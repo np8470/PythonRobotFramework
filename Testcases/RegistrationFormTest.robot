@@ -2,18 +2,23 @@
 Library    SeleniumLibrary
 
 *** Variables ***
-${url}      https://vinothqaacademy.com/demo-site/
+${registration url}      https://vinothqaacademy.com/demo-site/
+${dropdown url}      https://vinothqaacademy.com/drop-down/
 ${browser}  chrome
 
 *** Test Cases ***
-LoginTest
-    open browser    ${url}      ${browser}
+RegistrationFormTest
+    open browser    ${registration url}      ${browser}
     maximize browser window
-    input text      id:vfb-5    Niraj
+    set selenium speed    2 seconds    # 3 sec wait after each element interaction
+    title should be    Demo Site – Registration Form – Vinoth Tech Solutions
+    ${firsrNameElement}    set variable    id:vfb-5
+    input text      ${firsrNameElement}    Niraj
     input text      id:vfb-7    Patel
     select checkbox    id:vfb-20-0
     select checkbox    id:vfb-20-3
-    click element    id:vfb-31-1
+    select radio button    vfb-31       Male    # (name of radio button, value of radio button)
+    #click element    id:vfb-31-1
     input text      id:vfb-13-address   200, automation street
     input text      id:vfb-13-city      Ahmedabad
     input text      id:vfb-13-state     Gujarat
@@ -27,17 +32,34 @@ LoginTest
     Scroll And Input Text       id:vfb-23      This is Python Robot Framework Demo.
     Scroll And Input Text       id:vfb-3        33
     Scroll And Click Element    id=vfb-4
+    sleep    3
     close browser
 
+DropdownTest
+    open browser    ${dropdown url}     ${browser}
+    maximize browser window
+    ${time}=    get selenium timeout
+    log to console    ${time}
+    set selenium timeout    2 seconds
+    #set selenium implicit wait    2 seconds
+    wait until page contains    Simple Dropdown
+    select from list by value    id:simpleDropdown      NY
+    select from list by index    id:FromAccount         1
+    select from list by label    name:programming       Java    Python
+    close browser
 
 *** Keywords ***
 
 Scroll And Input Text
     [Arguments]    ${locator}    ${text}
     scroll element into view    ${locator}
+    element should be visible    ${locator}
+    element should be enabled    ${locator}
     input text      ${locator}    ${text}
 
 Scroll And Click Element
     [Arguments]    ${locator}
     scroll element into view    ${locator}
+    element should be visible    ${locator}
+    element should be enabled    ${locator}
     click button    ${locator}
