@@ -1,15 +1,14 @@
 *** Settings ***
 Library    SeleniumLibrary
+Resource    ../Resources/resources.robot
 
 *** Variables ***
 ${registration url}      https://vinothqaacademy.com/demo-site/
 ${dropdown url}      https://vinothqaacademy.com/drop-down/
-${browser}  chrome
 
 *** Test Cases ***
 RegistrationFormTest
-    open browser    ${registration url}      ${browser}
-    maximize browser window
+    Launch Browser      ${registration url}      ${default-browser}
     set selenium speed    2 seconds    # 3 sec wait after each element interaction
     title should be    Demo Site – Registration Form – Vinoth Tech Solutions
     ${firsrNameElement}    set variable    id:vfb-5
@@ -36,8 +35,7 @@ RegistrationFormTest
     close browser
 
 DropdownTest
-    open browser    ${dropdown url}     ${browser}
-    maximize browser window
+    Launch Browser      ${dropdown url}       ${default-browser}
     ${time}=    get selenium timeout
     log to console    ${time}
     set selenium timeout    2 seconds
@@ -49,17 +47,3 @@ DropdownTest
     close browser
 
 *** Keywords ***
-
-Scroll And Input Text
-    [Arguments]    ${locator}    ${text}
-    scroll element into view    ${locator}
-    element should be visible    ${locator}
-    element should be enabled    ${locator}
-    input text      ${locator}    ${text}
-
-Scroll And Click Element
-    [Arguments]    ${locator}
-    scroll element into view    ${locator}
-    element should be visible    ${locator}
-    element should be enabled    ${locator}
-    click button    ${locator}
