@@ -23,6 +23,7 @@ NewBrowserWindowTest
     sleep    2s
     maximize browser window
     element should be visible    xpath:(//h2[normalize-space()='Project Details'])[1]
+    capture element screenshot    xpath:(//h2[normalize-space()='Project Details'])[1]      projectdetails.png
     close all browsers
 
 NewTabTest
