@@ -1,7 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
 Resource    ../Resources/resources.robot
-
 *** Variables ***
 ${url}      https://vinothqaacademy.com/webtable/
 
