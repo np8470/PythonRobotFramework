@@ -4,6 +4,10 @@ Library    SeleniumLibrary
 *** Variables ***
 ${url}
 ${default-browser}      chrome
+#${default-browser}      firefox
+#${default-browser}      headlesschrome
+#${default-browser}      headlessfirefox
+
 
 *** Keywords ***
 Launch Browser

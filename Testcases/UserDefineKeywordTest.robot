@@ -1,6 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
-Resource    ../Resources/resources.robot
+Resource    ../Resources/SeleniumKeywords.robot
 
 *** Variables ***
 ${url}      https://vinothqaacademy.com/mouse-event/

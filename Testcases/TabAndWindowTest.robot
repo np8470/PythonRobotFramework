@@ -1,16 +1,23 @@
 *** Settings ***
 Library    SeleniumLibrary
+Resource    ../Resources/SeleniumKeywords.robot
+
+Test Setup        Launch Browser      ${url}      ${default-browser}
+Test Teardown     close all browsers
 
 *** Variables ***
 
 ${url}      https://vinothqaacademy.com/multiple-windows/
 ${browser}  chrome
 
+
+
 *** Test Cases ***
 
 NewBrowserWindowTest
-    open browser    ${url}      ${browser}
-    maximize browser window
+    [Tags]    Regression
+    #open browser    ${url}      ${browser}
+    #maximize browser window
     click element    name:newbrowserwindow123
     sleep    2s
     ${handles}=     get window handles
@@ -20,11 +27,12 @@ NewBrowserWindowTest
     sleep    2s
     maximize browser window
     element should be visible    xpath:(//h2[normalize-space()='Project Details'])[1]
-    close all browsers
+    #close all browsers
 
 NewTabTest
-    open browser    ${url}      ${browser}
-    maximize browser window
+    [Tags]    System
+    #open browser    ${url}      ${browser}
+    #maximize browser window
     click element    name:145newbrowsertab234
     sleep    2s
     ${handles}=     get window handles
@@ -32,6 +40,6 @@ NewTabTest
     sleep    2s
     maximize browser window
     element should be visible    xpath:(//h2[normalize-space()='Project Details'])[1]
-    close all browsers
+    #close all browsers
 
 *** Keywords ***

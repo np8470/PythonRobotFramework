@@ -6,13 +6,13 @@ Library           JSONLibrary
 Library           OperatingSystem
 Library           Collections
 Library           String
-#Library           DataDriver    Testdata/RegistrationForm.json
 Resource          ../Resources/RegistrationFormKeywords.robot
 Resource          ../Resources/SeleniumKeywords.robot
 
 #Suite Setup         Launch Browser        https://vinothqaacademy.com/demo-site/    chrome
 #Test Template       RegistrationForm
 #Suite Teardown      Close Browser
+
 
 *** Variables ***
 ${Test_Data}        RegistrationForm.json
