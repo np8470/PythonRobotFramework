@@ -1,6 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
-Resource    ../Resources/Resources.robot
+Resource    ../Resources/SeleniumKeywords.robot
 #Suite Setup         - Once before all test cases	Initialize suite-level setup
 #Suite Teardown      - Suite Teardown	Once after all test cases	Clean up after the whole suite
 #Test Template       - Allows data-driven testing by running a test keyword multiple times with different arguments.
