@@ -17,21 +17,21 @@ Launch Browser
 
 Scroll And Input Text
     [Arguments]    ${locator}    ${text}
-    scroll element into view    ${locator}
+    scroll element into view     ${locator}
     element should be visible    ${locator}
     element should be enabled    ${locator}
-    input text      ${locator}    ${text}
+    input text      ${locator}   ${text}
 
 Scroll And Click Element
     [Arguments]    ${locator}
-    scroll element into view    ${locator}
+    scroll element into view     ${locator}
     element should be visible    ${locator}
     element should be enabled    ${locator}
-    click element    ${locator}
+    click element                ${locator}
 
 Scroll And Click Button
     [Arguments]    ${locator}
-    scroll element into view    ${locator}
+    scroll element into view     ${locator}
     element should be visible    ${locator}
     element should be enabled    ${locator}
-    click button    ${locator}
+    click button                 ${locator}

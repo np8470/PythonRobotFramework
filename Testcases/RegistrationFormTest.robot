@@ -6,7 +6,6 @@ Resource    ../Resources/SeleniumKeywords.robot
 #Test Template       - Allows data-driven testing by running a test keyword multiple times with different arguments.
 
 
-
 *** Variables ***
 ${registration url}      https://vinothqaacademy.com/demo-site/
 ${dropdown url}      https://vinothqaacademy.com/drop-down/
