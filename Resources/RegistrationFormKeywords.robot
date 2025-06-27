@@ -1,10 +1,15 @@
 *** Settings ***
 Library    SeleniumLibrary
+Resource          ../Resources/SeleniumKeywords.robot
+
+*** Variables ***
+${registration url}      https://vinothqaacademy.com/demo-site/
 
 *** Keywords ***
 
 RegistrationForm
     [Arguments]          ${first_name}    ${last_name}    ${gender}    ${course}    ${address}    ${city}    ${state}    ${country}    ${postal_code}    ${email}    ${phone}    ${date_of_demo}    ${hour}    ${minute}    ${query}    ${verification_code}
+    Launch Browser               ${registration url}                  ${default-browser}
     Input Text                  id:vfb-5             ${first_name}
     Input Text                  id:vfb-7             ${last_name}
     Select Radio Button         vfb-31               ${gender}
